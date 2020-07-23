@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  haproxy:
+    build:
+      context: ./haproxy
+      dockerfile: Dockerfile
+    depends_on:
+      - diddly
+      - squiddly
+    ports:
+      - "8080:8080"
+  squiddly:
+    build:
+      context: ./squid
+      dockerfile: Dockerfile
+  diddly:
+    build:
+      context: ./squid
+      dockerfile: Dockerfile
